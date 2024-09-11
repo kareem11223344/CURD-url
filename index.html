@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <!-- fiva icon -->
+    <link rel="icon" href="images/favicon.ico">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Font Awesom -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="py-5">
+        <div class="container">
+            <h1 class="text-center mx-auto position-relative"> Bookmarker </h1>
+
+            <div class="content mt-5 py-4">
+                <h2 class="text-center fs-4 fw-bold mb-4">
+                    <i class="fa-solid fa-bookmark me-2 fs-3"></i>
+                    Bookmark your favorite sites
+                    <i class="fa-solid fa-bookmark me-2 fs-3"></i>
+                </h2>
+
+                <form class="mx-4">
+                    <div class="mb-4 position-relative">
+                        <label class="fw-bold" for="siteName"> <i class="fa-solid fa-book-bookmark pe-2"></i> Site
+                            Name</label>
+                        <input onkeyup="validNameInput()" type="text" id="siteName" name="siteName"
+                            placeholder=" Bookmark Name" class="form-control mt-2">
+                        
+                    </div>
+
+                    <div class="mb-4 position-relative">
+                        <label class="fw-bold" for="siteUrl"> <i class="fa-solid fa-link pe-2"></i> Site URL</label>
+                        <input onkeyup="validUrlInput()" type="text" id="siteUrl" name="siteUrl"
+                            placeholder="Website URL" class="form-control mt-2">
+                        
+                    </div>
+
+                    <button id="submit" onclick="addSite()" data-bs-toggle="modal" data-bs-target="#openModal"
+                        class="d-block mx-auto py-2 rounded-3 bg-success border-success" type="button">Submit</button>
+                </form>
+            </div>
+
+            <input onkeyup="displaySites()" type="text" class="form-control w-25 my-4" placeholder="search........" name="" id="searchSite">
+
+            <table class="table mt-4 text-center">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Website Name</th>
+                        <th>Visit</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="data"></tbody>
+                <tfoot id="btnRemove"></tfoot>
+            </table>
+        </div>
+    </section>
+
+    <!-- Start Modal -->
+    <div class="modal fade" id="openModal" tabindex="-1" aria-labelledby="openModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0">
+                    <div class="circle d-flex gap-1">
+                        <div class="bg-danger rounded-circle"></div>
+                        <div class="bg-warning rounded-circle"></div>
+                        <div class="bg-success rounded-circle"></div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="fw-bold">Site Name or Url is not valid, Please follow the rules below :</h5>
+                </div>
+                <div class="modal-footer border-0 justify-content-start">
+                    <p class="fs-5 fw-semibold"><i class="fa-regular fa-circle-right p-2 text-danger"></i> Site name
+                        must contain at least 3 characters</p>
+                    <p class="fs-5 fw-semibold"><i class="fa-regular fa-circle-right p-2 text-danger"></i> Site URL must
+                        be a valid one</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal -->
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
